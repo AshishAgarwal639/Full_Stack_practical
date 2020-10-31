@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+          *{
+              margin:0;
+              padding:0;
+              box-sizing: border-box;
+              position: relative;
+          }
+          body{
+              background-color:gray;
+              display:flex;
+              align-items: center;
+              justify-content: center;
+              width:100%;
+              min-height: 100vh;
+          }
+          .container{
+              text-align:center;
+              justify-content: center;
+              align-items: center;
+              padding-bottom:500px;
+              padding-left:150px;
+              color:white;
+              position:fixed;
+              margin-right:150px;
+              font-size: larger;
+            
+          }
+          #sub{
+              background-color: yellow;
+              border:none;
+              margin:auto;
+              margin-top:150px;
+              display:inline-block;
+              margin-right:25px;
+            
+          }
+          #add{
+              background-color:yellow;
+              border:1px solid black;
+              margin:auto;
+              margin-top:150px;
+              display:inline-block;
+              margin-left:50px;
+          }
+          #qtyBox{
+              color:yellow;
+              border:none;
+              margin-bottom:285px;
+              margin-left:50px;
+              display:inline-block;
+              
+          }
+          button{
+              width:60px;
+              height:60px;
+              font-size: 3em;
+              margin:auto;
+              text-align: center;
+              position:relative;
+              line-height: 30px;
+              border-radius: 10px;
+              outline: none;
+              color:black;
+              cursor:pointer;
+              background: transparent ;
+              box-shadow: inset -2px -2px 2px rgba(255,255,255,.2),
+                           inset 2px 5px 15px rgba(0,0,0,.5);
+          }
+          button:active{
+              box-shadow:inset 2px 2px 2px rgba(255,255,255,.1),
+                          inset -2px -5px 15px rgba(0,0,0,.5);
+                
+          }
+          input{
+              border-radius: 10px;
+              outline: none;
+              padding:15px 0;
+              width:100px;
+              text-align: center;
+              font-size: 1.5em;
+              margin:0 10px;
+              background: transparent;
+              box-shadow: inset -2px -2px 2px rgba(255,255,255,.2),
+                           inset 2px 5px 15px rgba(0, 0, 0, 0.5);
+
+          }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <h1>COUNTER</h1>
+    </div>
+    <button id="sub">-</button>
+    <input type="text" id="qtyBox" readonly="" value="0">
+    <button id="add">+</button>
+    <script type="text/javascript">
+        let addBtn = document.querySelector('#add');
+        let subBtn =document.querySelector('#sub');
+        let qty=document.querySelector('#qtyBox');
+        console.log(addBtn,subBtn,qty);
+        addBtn.addEventListener('click' ,()=>{
+            qty.value = parseInt(qty.value) + 1;
+        });
+        subBtn.addEventListener('click' ,()=>{
+            if(qty.value<=0){
+                qty.value=0;
+            }
+            else{
+                qty.value=parseInt(qty.value) - 1;
+            }
+        });
+
+
+    </script>
+    
+    
+</body>
+</html>
