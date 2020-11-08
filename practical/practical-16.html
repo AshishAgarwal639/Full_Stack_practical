@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+    <title>TODO-LIST</title>
+    <link rel="stylesheet" href="../css/style-16.css" />
+</head>
+<body style="background-color:indigo;background: linear-gradient();">
+    <h1>TODO-LIST</h1>
+    <form>
+        <input type="text" class="input1">
+        <button class="button1">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+        </button>
+    </form>
+    <div class="container1">
+        <ul class="list1">
+            <div>
+                <li></li>
+            </div>
+
+        </ul>
+    </div>
+     <script>
+         var todoinput1=document.querySelector(".input1");
+         var todobutton1=document.querySelector(".button1");
+          console.log(todobutton1);
+          var todolist1=document.querySelector(".list1");
+          var n=todoinput1.value;
+
+todobutton1.onclick=create;
+todolist1.onclick=checkdelete;
+   function create(e){
+    e.preventDefault();
+    var newDiv = document.createElement("div");
+    newDiv.classList.add("todo");
+
+    var newLi=document.createElement("li");
+    newLi.classList.add("todo-item");
+    newLi.innerHTML=todoinput1.value;
+    newDiv.appendChild(newLi);
+
+    var checkbtn=document.createElement("button");
+    checkbtn.classList.add("check-btn");
+    checkbtn.innerHTML='<i class="fa fa-check" ></i>';
+    newDiv.appendChild(checkbtn);
+
+    var deletebtn=document.createElement("button");
+    deletebtn.classList.add("delete-btn");
+    deletebtn.innerHTML='<i class="fa fa-trash" ></i>';
+    newDiv.appendChild(deletebtn);
+
+    todolist1.appendChild(newDiv);
+}
+     function checkdelete(e){
+    var item =e.target;
+    if(item.classList[0]==="delete-btn"){
+        var parent=item.parentNode;
+        parent.remove();
+    }
+    if(item.classList[0]==="check-btn"){
+        var parent = item.parentNode;
+        parent.classList.toggle("completed");
+    }
+
+}
+     </script>
+</body>
+</html>
